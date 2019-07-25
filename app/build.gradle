@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+
+apply from: '../config-android.gradle'
+
+android {
+    compileSdkVersion Releases.targetSdkVersion
+    defaultConfig {
+        applicationId ApplicationId.id
+        multiDexEnabled = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':network')
+    implementation project(':core')
+
+    /*Android Support*/
+    implementation AndroidSupport.v4
+    implementation AndroidSupport.cardview
+    implementation AndroidSupport.recyclerview
+    implementation AndroidSupport.design
+    implementation AndroidSupport.appCompat
+    implementation AndroidSupport.constraintLayout
+
+    /*Lifecycle Arch*/
+//    implementation Lifecycle.extentions
+
+    /*Network*/
+    implementation Retrofit.retrofit
+    implementation Retrofit.gson
+    implementation Retrofit.gsonConverter
+    implementation Retrofit.okHttpLogging
+    implementation Retrofit.rxAdapter
+
+    /*Dagger2*/
+    implementation Dagger.dagger
+    kapt Dagger.compiler
+    implementation Dagger.android
+    implementation Dagger.androidSupport
+    kapt Dagger.processor
+
+    /*Rxjava2*/
+    implementation Reactivex.java
+    implementation Reactivex.android
+
+    /*Facebook*/
+    implementation Facebook.login
+    implementation Facebook.shimmer
+
+    /*AirBnb*/
+    implementation Airbnb.lottie
+
+    /*Font Adapter*/
+    implementation Font.calligraphy
+
+    /*Karumi*/
+    implementation Karumi.dexter
+
+    /*NavigationBottom*/
+    implementation Ah.bottomNav
+
+    /*multidex*/
+    implementation Multidex.multidex
+
+    /*Easy validation*/
+    implementation Easyvalidation.core
+
+    /*Anko*/
+    implementation Anko.anko
+    implementation Anko.common
+    implementation Anko.design
+
+    /*Test*/
+    testImplementation Testing.junit
+    testImplementation Testing.mockitoCore
+    //noinspection GradleCompatible
+    androidTestImplementation Testing.rules
+    androidTestImplementation Testing.runner
+    androidTestImplementation Testing.espressoCore
+    testImplementation Testing.mockitoInline
+    implementation Deps.kotlin_stdlib
+}

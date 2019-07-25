@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+apply from: '../config-android.gradle'
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /*Dagger2*/
+    implementation Dagger.dagger
+    kapt Dagger.compiler
+    implementation Dagger.android
+    implementation Dagger.androidSupport
+    kapt Dagger.processor
+
+    /*Android Support*/
+    implementation AndroidSupport.v4
+    implementation AndroidSupport.design
+    implementation AndroidSupport.appCompat
+
+    /*Rxjava2*/
+    implementation Reactivex.java
+    implementation Reactivex.android
+
+    /*Test*/
+    testImplementation Testing.junit
+    testImplementation Testing.mockitoCore
+    androidTestImplementation Testing.rules
+    androidTestImplementation Testing.runner
+    androidTestImplementation Testing.espressoCore
+    testImplementation Testing.mockitoInline
+    implementation Deps.kotlin_stdlib
+}
