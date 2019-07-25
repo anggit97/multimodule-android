@@ -22,7 +22,7 @@ class NetworkModule {
     fun provideRetrofit(): Retrofit {
         val okhttp = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30 , TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()

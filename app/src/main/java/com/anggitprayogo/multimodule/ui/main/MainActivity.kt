@@ -3,8 +3,11 @@ package com.anggitprayogo.multimodule.ui.main
 import android.os.Bundle
 import android.util.Log.e
 import com.anggitprayogo.core.BaseActivity
+import com.anggitprayogo.feature_sports.ui.sportslist.SportListActivity
 import com.anggitprayogo.multimodule.R
 import com.anggitprayogo.multimodule.model.Source
+import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
@@ -18,6 +21,10 @@ class MainActivity : BaseActivity(), MainContract.View {
         presenter.attachView(this)
 
         presenter.getNewsSources()
+
+        btn_navigate.setOnClickListener {
+            startActivity<SportListActivity>()
+        }
     }
 
     override fun showResponseSuccess(body: Source?) {

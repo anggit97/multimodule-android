@@ -1,6 +1,7 @@
 package com.anggitprayogo.multimodule.di
 
 import android.app.Application
+import com.anggitprayogo.feature_sports.di.ActivityBuilderSportsModule
 import com.anggitprayogo.multimodule.BaseApplication
 import com.anggitprayogo.network.di.NetworkModule
 import dagger.BindsInstance
@@ -17,7 +18,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         NetworkModule::class,
-        ActivityBuilderModule::class
+        ActivityBuilderModule::class,
+        ActivityBuilderSportsModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
