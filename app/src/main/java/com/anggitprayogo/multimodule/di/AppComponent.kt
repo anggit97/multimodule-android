@@ -2,6 +2,7 @@ package com.anggitprayogo.multimodule.di
 
 import android.app.Application
 import com.anggitprayogo.feature_sports.di.ActivityBuilderSportsModule
+import com.anggitprayogo.feature_tech.di.ActivityBuilderTechModule
 import com.anggitprayogo.multimodule.BaseApplication
 import com.anggitprayogo.network.di.NetworkModule
 import dagger.BindsInstance
@@ -19,7 +20,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         NetworkModule::class,
         ActivityBuilderModule::class,
-        ActivityBuilderSportsModule::class
+        ActivityBuilderSportsModule::class,
+        ActivityBuilderTechModule::class
     ]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {

@@ -21,10 +21,6 @@ class MainActivity : BaseActivity(), MainContract.View {
         presenter.attachView(this)
 
         presenter.getNewsSources()
-
-        btn_navigate.setOnClickListener {
-            startActivity<SportListActivity>()
-        }
     }
 
     override fun showResponseSuccess(body: Source?) {

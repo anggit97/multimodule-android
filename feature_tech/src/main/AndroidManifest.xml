@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.anggitprayogo.feature_tech">
+
+    <application>
+        <activity android:name=".ui.techlist.TechListActivity">
+        </activity>
+    </application>
+
+</manifest>

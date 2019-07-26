@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Multi Module Example</string>
+    <string name="label_sport">To Sport</string>
+    <string name="label_business">Bisnis</string>
+    <string name="label_entertainment">Entertainment</string>
+    <string name="label_technology">Technology</string>
 </resources>
